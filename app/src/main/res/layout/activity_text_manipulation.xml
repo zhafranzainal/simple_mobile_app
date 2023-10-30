@@ -19,6 +19,7 @@
         app:layout_constraintVertical_bias="0.108" />
 
     <TextView
+        android:id="@+id/labelColour"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Text Colour"
@@ -37,12 +38,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.178"
+        app:layout_constraintHorizontal_bias="0.15"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.448">
+        app:layout_constraintTop_toBottomOf="@id/labelColour">
 
         <RadioButton
             android:id="@+id/radioButtonBlack"
@@ -83,6 +82,7 @@
     </RadioGroup>
 
     <TextView
+        android:id="@+id/labelSize"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Text Size"
@@ -101,12 +101,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.178"
+        app:layout_constraintHorizontal_bias="0.15"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.596">
+        app:layout_constraintTop_toBottomOf="@id/labelSize">
 
         <RadioButton
             android:id="@+id/radioButton18"
@@ -147,6 +145,7 @@
     </RadioGroup>
 
     <TextView
+        android:id="@+id/labelStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Text Style"
@@ -177,23 +176,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.388"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.72" />
+        app:layout_constraintStart_toEndOf="@id/checkBoxNormal"
+        app:layout_constraintTop_toBottomOf="@id/labelStyle" />
 
     <CheckBox
         android:id="@+id/checkBoxItalic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="italic"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.622"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.72" />
+        app:layout_constraintStart_toEndOf="@id/checkBoxBold"
+        app:layout_constraintTop_toBottomOf="@id/labelStyle" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
