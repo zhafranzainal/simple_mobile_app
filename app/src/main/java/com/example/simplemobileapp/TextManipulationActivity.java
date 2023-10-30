@@ -3,7 +3,10 @@ package com.example.simplemobileapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -17,6 +20,8 @@ public class TextManipulationActivity extends AppCompatActivity {
 
     private RadioGroup radGroupSize;
     private RadioButton radBtnSmall, radBtnMed, radBtnLarge;
+
+    private CheckBox chkNormal, chkBold, chkItalic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +40,10 @@ public class TextManipulationActivity extends AppCompatActivity {
         radBtnSmall = findViewById(R.id.radioButton18);
         radBtnMed = findViewById(R.id.radioButton24);
         radBtnLarge = findViewById(R.id.radioButton28);
+
+        chkNormal = findViewById(R.id.checkBoxNormal);
+        chkBold = findViewById(R.id.checkBoxBold);
+        chkItalic = findViewById(R.id.checkBoxItalic);
 
         radGroupColour.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
 
@@ -65,6 +74,43 @@ public class TextManipulationActivity extends AppCompatActivity {
             }
 
         });
+
+        chkNormal.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                applyTextStyle();
+            }
+        });
+
+        chkBold.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                applyTextStyle();
+            }
+        });
+
+        chkItalic.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                applyTextStyle();
+            }
+        });
+
+    }
+
+    private void applyTextStyle() {
+
+        int style = Typeface.NORMAL;
+
+        if (chkBold.isChecked() && chkItalic.isChecked()) {
+            style = Typeface.BOLD_ITALIC;
+        } else if (chkBold.isChecked()) {
+            style = Typeface.BOLD;
+        } else if (chkItalic.isChecked()) {
+            style = Typeface.ITALIC;
+        }
+
+        text.setTypeface(null, style);
 
     }
 
