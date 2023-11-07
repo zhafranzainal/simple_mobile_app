@@ -18,6 +18,7 @@ public class MyIntentActivity extends AppCompatActivity {
     private Button homeBtn;
     private Button callBtn;
     private Button smsBtn;
+    private Button dialBtn;
 
     private final String mCallPhonePermission = android.Manifest.permission.CALL_PHONE;
 
@@ -29,6 +30,7 @@ public class MyIntentActivity extends AppCompatActivity {
         homeBtn = findViewById(R.id.homeButton);
         callBtn = findViewById(R.id.callButton);
         smsBtn = findViewById(R.id.smsButton);
+        dialBtn = findViewById(R.id.dialButton);
 
         homeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,6 +56,14 @@ public class MyIntentActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_VIEW);
                 intent.setData(Uri.parse("smsto:60172923450"));
+                startActivity(intent);
+            }
+        });
+
+        dialBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_DIAL);
                 startActivity(intent);
             }
         });
