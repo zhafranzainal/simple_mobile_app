@@ -63,7 +63,7 @@ public class MyIntentActivity extends AppCompatActivity {
         dialBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_DIAL);
+                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:60172923450"));
                 startActivity(intent);
             }
         });
