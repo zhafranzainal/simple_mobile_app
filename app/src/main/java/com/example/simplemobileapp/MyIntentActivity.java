@@ -9,12 +9,16 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 public class MyIntentActivity extends AppCompatActivity {
 
+    private EditText urlInput;
+    private Button searchBtn;
     private Button homeBtn;
     private Button callBtn;
     private Button smsBtn;
@@ -27,10 +31,31 @@ public class MyIntentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_intent);
 
+        urlInput = findViewById(R.id.urlText);
+        searchBtn = findViewById(R.id.searchButton);
         homeBtn = findViewById(R.id.homeButton);
         callBtn = findViewById(R.id.callButton);
         smsBtn = findViewById(R.id.smsButton);
         dialBtn = findViewById(R.id.dialButton);
+
+        searchBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String url = urlInput.getText().toString();
+
+                if (!url.startsWith("http://") && !url.startsWith("https://")) {
+                    url = "http://" + url;
+                }
+
+                if (Patterns.WEB_URL.matcher(url).matches()) {
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(MyIntentActivity.this, "Invalid URL. Please enter a valid URL.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
         homeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
