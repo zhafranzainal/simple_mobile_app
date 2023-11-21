@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">Simple Mobile App</string>
+    <string-array name="items">
+        <item>Cola</item>
+        <item>Maggi</item>
+        <item>Milo</item>
+        <item>Nescafe</item>
+        <item>Shampoo</item>
+        <item>Walls</item>
+    </string-array>
+    <string-array name="price">
+        <item>Price: RM2</item>
+        <item>Price: RM4</item>
+        <item>Price: RM20</item>
+        <item>Price: RM12</item>
+        <item>Price: RM0</item>
+        <item>Price: RM0</item>
+    </string-array>
 </resources>
