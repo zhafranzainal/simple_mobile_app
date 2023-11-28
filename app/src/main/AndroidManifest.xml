@@ -14,7 +14,7 @@
         android:theme="@style/Theme.SimpleMobileApp"
         tools:targetApi="31">
         <activity
-            android:name=".RecyclerViewActivity"
+            android:name=".MyFirebaseActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,8 +22,11 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".RecyclerViewActivity"
+            android:exported="true" />
+        <activity
             android:name=".MyIntentActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".TextManipulationActivity"
             android:exported="true" />
