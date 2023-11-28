@@ -3,6 +3,7 @@ package com.example.simplemobileapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -27,11 +28,26 @@ public class MyFirebaseActivity extends AppCompatActivity {
         itemQty = findViewById(R.id.editTextQuantity);
         btn = findViewById(R.id.buttonSubmit);
 
-        // Write a message to the database
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("message");
+        PurchaseItem purchaseItem = new PurchaseItem();
 
-        myRef.setValue("Hello, World!");
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference().child("PurchaseItem");
+
+        btn.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                purchaseItem.setName(itemName.getText().toString());
+                purchaseItem.setPrice(Float.valueOf(itemPrice.getText().toString()));
+                purchaseItem.setQuantity(Integer.valueOf(itemQty.getText().toString()));
+
+                myRef.push().setValue(purchaseItem);
+
+            }
+
+        });
 
     }
+
 }
